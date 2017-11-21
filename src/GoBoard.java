@@ -60,7 +60,7 @@ class GoBoard extends Pane {
     private void initialiseLinesBackground() {
         // initialize backkground, set colour and add to reversiBoard
         background = new Rectangle();
-        background.setFill(Color.CYAN);
+        background.setFill(Color.BURLYWOOD);
         getChildren().add(background);
 
 
