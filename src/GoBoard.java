@@ -60,7 +60,7 @@ class GoBoard extends Pane {
     private void initialiseLinesBackground() {
         // initialize backkground, set colour and add to reversiBoard
         background = new Rectangle();
-        background.setFill(Color.BURLYWOOD);
+        background.setFill(Color.SANDYBROWN);
         getChildren().add(background);
 
 
@@ -144,6 +144,7 @@ class GoBoard extends Pane {
     // the width and height of a cell in the board
     private double cell_width;
     private double cell_height;
+
 }
 
 
