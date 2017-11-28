@@ -23,8 +23,9 @@ class GoBoard extends Pane {
     public void placePiece(final double x, final double y) {
         int cX = (int) (x / cell_width);
         int cY = (int) (y / cell_height);
-
-        return;
+        if (render[cX][cY].getPiece() != GoPiece.Colour.EMPTY)
+            return;
+        render[cX][cY].setPiece(GoPiece.Colour.BLACK);
     }
 
     // overridden version of the resize method to give the board the correct size

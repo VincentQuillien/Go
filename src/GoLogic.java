@@ -25,6 +25,7 @@ class Coord {
     }
 }
 
+/*
 public class GoLogic {
     private GoPiece.Colour player;
 
@@ -45,3 +46,4 @@ public class GoLogic {
         }
     }
 }
+*/
