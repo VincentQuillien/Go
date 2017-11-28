@@ -9,10 +9,10 @@ class GoBoard extends Pane {
     // default constructor for the class
     public GoBoard() {
         render = new GoPiece[8][8];
-        horizontal = new Line[8];
-        vertical = new Line[8];
-        horizontal_t = new Translate[8];
-        vertical_t = new Translate[8];
+        horizontal = new Line[7];
+        vertical = new Line[7];
+        horizontal_t = new Translate[7];
+        vertical_t = new Translate[7];
 
         initialiseLinesBackground();
         initialiseRender();
@@ -60,12 +60,13 @@ class GoBoard extends Pane {
     // private method that will initialise the background and the lines
     private void initialiseLinesBackground() {
         // initialize backkground, set colour and add to reversiBoard
+        System.out.println(cell_height);
         background = new Rectangle();
         background.setFill(Color.SANDYBROWN);
         getChildren().add(background);
 
 
-        for (int i = 1; i < 8; i++) {
+        for (int i = 0; i < 7; i++) {
             horizontal[i] = new Line();
             horizontal_t[i] = new Translate();
             horizontal[i].getTransforms().add(horizontal_t[i]);
@@ -75,7 +76,7 @@ class GoBoard extends Pane {
             getChildren().add(horizontal[i]);
         }
 
-        for (int i = 1; i < 8; i++) {
+        for (int i = 0; i < 7; i++) {
             vertical[i] = new Line();
             vertical_t[i] = new Translate();
             vertical[i].getTransforms().add(vertical_t[i]);
@@ -88,17 +89,19 @@ class GoBoard extends Pane {
 
     // private method for resizing and relocating the horizontal lines
     private void horizontalResizeRelocate(final double width) {
-        for (int x = 1; x < 8; x++) {
-            horizontal[x].setEndX(width);
-            horizontal_t[x].setY(x * cell_height);
+        for (int x = 0; x < 7; x++) {
+            horizontal[x].setEndX(width - cell_width);
+            horizontal[x].setStartX(cell_width);
+            horizontal_t[x].setY((x + 1) * cell_height);
         }
     }
 
     // private method for resizing and relocating the vertical lines
     private void verticalResizeRelocate(final double height) {
-        for (int x = 1; x < 8; x++) {
-            vertical[x].setEndY(height);
-            vertical_t[x].setX(x * cell_width);
+        for (int y = 0; y < 7; y++) {
+            vertical[y].setEndY(height - cell_height);
+            vertical[y].setStartY(cell_height);
+            vertical_t[y].setX((y + 1) * cell_width);
         }
     }
 
