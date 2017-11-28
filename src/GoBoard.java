@@ -49,8 +49,8 @@ class GoBoard extends Pane {
 
     // private method that will reset the renders
     private void resetRenders() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 1; i < 8; i++) {
+            for (int j = 1; j < 8; j++) {
                 render[i][j].setPiece(GoPiece.Colour.EMPTY);
             }
         }
@@ -60,11 +60,11 @@ class GoBoard extends Pane {
     private void initialiseLinesBackground() {
         // initialize backkground, set colour and add to reversiBoard
         background = new Rectangle();
-        background.setFill(Color.BURLYWOOD);
+        background.setFill(Color.SANDYBROWN);
         getChildren().add(background);
 
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             horizontal[i] = new Line();
             horizontal_t[i] = new Translate();
             horizontal[i].getTransforms().add(horizontal_t[i]);
@@ -74,7 +74,7 @@ class GoBoard extends Pane {
             getChildren().add(horizontal[i]);
         }
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 1; i < 8; i++) {
             vertical[i] = new Line();
             vertical_t[i] = new Translate();
             vertical[i].getTransforms().add(vertical_t[i]);
@@ -87,7 +87,7 @@ class GoBoard extends Pane {
 
     // private method for resizing and relocating the horizontal lines
     private void horizontalResizeRelocate(final double width) {
-        for (int x = 0; x < 8; x++) {
+        for (int x = 1; x < 8; x++) {
             horizontal[x].setEndX(width);
             horizontal_t[x].setY(x * cell_height);
         }
@@ -95,7 +95,7 @@ class GoBoard extends Pane {
 
     // private method for resizing and relocating the vertical lines
     private void verticalResizeRelocate(final double height) {
-        for (int x = 0; x < 8; x++) {
+        for (int x = 1; x < 8; x++) {
             vertical[x].setEndY(height);
             vertical_t[x].setX(x * cell_width);
         }
@@ -103,8 +103,8 @@ class GoBoard extends Pane {
 
     // private method for resizing and relocating all the pieces
     private void pieceResizeRelocate() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 1; i < 8; i++) {
+            for (int j = 1; j < 8; j++) {
                 render[i][j].resize(cell_width, cell_height);
                 render[i][j].relocate(i * cell_width, j * cell_height);
             }
@@ -120,8 +120,8 @@ class GoBoard extends Pane {
 
     // private method that will initialise everything in the render array
     private void initialiseRender() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        for (int i = 1; i < 8; i++) {
+            for (int j = 1; j < 8; j++) {
                 render[i][j] = new GoPiece(GoPiece.Colour.EMPTY);
                 this.getChildren().add(render[i][j]);
             }
@@ -144,6 +144,7 @@ class GoBoard extends Pane {
     // the width and height of a cell in the board
     private double cell_width;
     private double cell_height;
+
 }
 
 

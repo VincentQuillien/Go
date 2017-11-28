@@ -1,6 +1,7 @@
 //imports
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -10,7 +11,9 @@ public class Go extends Application {
     public void init() {
         sp_mainlayout = new StackPane();
         go_control = new GoControl();
+        //hb = new HBox();
         sp_mainlayout.getChildren().add(go_control);
+        //sp_mainlayout.getChildren().add(hb);
     }
 
     // overridden start method
@@ -33,6 +36,8 @@ public class Go extends Application {
     // private fields for a stack pane and a reversi control
     private StackPane sp_mainlayout;
     private GoControl go_control;
+    private HBox hb;
+
 
 }
 
