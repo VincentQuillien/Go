@@ -23,10 +23,11 @@ class GoBoard extends Pane {
     public void placePiece(final double x, final double y) {
         int cX = (int) (x / cell_width);
         int cY = (int) (y / cell_height);
-        System.out.println(cX + " " + cY);
-        if (render[cX][cY].getPiece() != GoPiece.Colour.EMPTY)
-            return;
-        render[cX][cY].setPiece(GoPiece.Colour.BLACK);
+        System.out.println(cX + "," + cY);
+        if (render[cX][cY].getPiece() == GoPiece.Colour.EMPTY){
+            render[cX][cY].setPiece(current_player);
+            current_player = current_player == GoPiece.Colour.BLACK ? GoPiece.Colour.WHITE : GoPiece.Colour.BLACK;
+        }
     }
 
     // overridden version of the resize method to give the board the correct size
