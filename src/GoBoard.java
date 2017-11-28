@@ -33,8 +33,8 @@ class GoBoard extends Pane {
     @Override
     public void resize(double width, double height) {
         super.resize(width, height);
-        cell_width = width / 8;
-        cell_height = height / 8;
+        cell_width = width / 7;
+        cell_height = height / 7;
         background.setWidth(width);
         background.setHeight(height);
         horizontalResizeRelocate(width);
@@ -91,7 +91,7 @@ class GoBoard extends Pane {
     // private method for resizing and relocating the horizontal lines
     private void horizontalResizeRelocate(final double width) {
         for (int x = 0; x < 7; x++) {
-            horizontal[x].setEndX(width - cell_width - cell_width / 2);
+            horizontal[x].setEndX(width - cell_width / 2);
             horizontal[x].setStartX(cell_width / 2);
             horizontal_t[x].setY((x + 1) * cell_height - cell_height / 2);
         }
@@ -100,7 +100,7 @@ class GoBoard extends Pane {
     // private method for resizing and relocating the vertical lines
     private void verticalResizeRelocate(final double height) {
         for (int y = 0; y < 7; y++) {
-            vertical[y].setEndY(height - cell_height - cell_height / 2);
+            vertical[y].setEndY(height - cell_height / 2);
             vertical[y].setStartY(cell_height / 2);
             vertical_t[y].setX((y + 1) * cell_width - cell_width / 2);
         }
