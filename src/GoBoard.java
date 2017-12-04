@@ -50,6 +50,23 @@ class GoBoard extends Pane {
 
     }
 
+    //Public method for counting the score
+    /*public void updateScore(){
+        for(int x = 0; x < 7; x++){
+            for(int y = 0; y < 7; y++){
+                if(render[x][y].getPiece() == GoPiece.Colour.BLACK){
+                    black_score = black_score + 1;
+                }
+                else if(render[x][y].getPiece() == GoPiece.Colour.WHITE){
+                    white_score += 1;
+                }
+            }
+        }
+        System.out.println("Black's score is: " + black_score);
+        System.out.println("White's score is: " + white_score);
+    }*/
+
+
     // private method that will reset the renders
     private void resetRenders() {
         for (int i = 0; i < 7; i++) {
@@ -150,7 +167,8 @@ class GoBoard extends Pane {
     // the width and height of a cell in the board
     private double cell_width;
     private double cell_height;
-
+    private double white_score = 0.5;
+    private double black_score = 0;
 }
 
 
