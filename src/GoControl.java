@@ -17,9 +17,6 @@ class GoControl extends Control {
     public GoControl() {
 
         setSkin(new GoControlSkin(this));
-        go_board = new GoBoard();
-        logic = new GoLogic(go_board);
-        getChildren().add(go_board);
         resetGame = new Button("Reset Game");
         rules = new Button("Rules");
         pass = new Button("Skip");
@@ -32,6 +29,13 @@ class GoControl extends Control {
         resetGame.setPrefSize(80, Integer.MAX_VALUE);
         rules.setPrefSize(80, Integer.MAX_VALUE);
         pass.setPrefSize(80, Integer.MAX_VALUE);
+        go_board = new GoBoard();
+        logic = new GoLogic(go_board, (scores, playerColor) -> {
+            blackscore.setText("Black Score: " + scores[0]);
+            whitescore.setText("White Score: " + scores[1]);
+            currentplayer.setText("Current Player = " + playerColor);
+        });
+        getChildren().add(go_board);
 
         // mouse clicked event handler that will try to place a piece on the board
         setOnMouseClicked(new EventHandler<MouseEvent>(){
