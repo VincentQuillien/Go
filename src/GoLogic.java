@@ -72,11 +72,18 @@ public class GoLogic {
         currentState[x][y] = GoPiece.Colour.EMPTY;
 
         // End turn
-        // TODO update score
+        if(currentPlayer == GoPiece.Colour.WHITE){
+            captured_black += captured.size();
+        }
+        else if ( currentPlayer == GoPiece.Colour.BLACK){
+            captured_white += captured.size();
+        }
+
         swapPlayer();
         previousState = currentState;
         currentState = newState;
         board.render(currentState);
+        updateScore();
     }
 
     void resetGame() {
@@ -130,4 +137,27 @@ public class GoLogic {
     private GoPiece.Colour getOpposite(GoPiece.Colour colour) {
         return colour == GoPiece.Colour.BLACK ? GoPiece.Colour.WHITE : GoPiece.Colour.BLACK;
     }
+
+    //Public method for counting the score
+    public void updateScore(){
+        black_score = 0;
+        white_score = 0.5;
+        for(int x = 0; x < 7; x++){
+            for(int y = 0; y < 7; y++){
+                if(currentState[x][y] == GoPiece.Colour.BLACK){
+                    black_score ++;
+                }
+                else if(currentState[x][y] == GoPiece.Colour.WHITE){
+                    white_score ++;
+                }
+            }
+        }
+        System.out.println("Black's score is: " + (black_score + captured_white));
+        System.out.println("White's score is: " + (white_score + captured_black));
+    }
+
+    private int captured_black;
+    private int captured_white;
+    private double white_score;   // white gets extra .5 for going second and to avoid a tie
+    private double black_score;
 }

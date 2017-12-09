@@ -48,24 +48,6 @@ class GoBoard extends Pane {
         pieceResizeRelocate();
     }
 
-    //Public method for counting the score
-    /*public void updateScore(){
-        for(int x = 0; x < SIZE; x++){
-            for(int y = 0; y < SIZE; y++){
-                if(render[x][y].getPiece() == GoPiece.Colour.BLACK){
-                    black_score = black_score + 1;
-                }
-                else if(render[x][y].getPiece() == GoPiece.Colour.WHITE){
-                    white_score += 1;
-                }
-            }
-        }
-        System.out.println("Black's score is: " + black_score);
-        System.out.println("White's score is: " + white_score);
-    }*/
-
-
-
     // private method that will initialise the background and the lines
     private void initialiseLinesBackground() {
         // initialize backkground, set colour and add to reversiBoard
@@ -145,12 +127,10 @@ class GoBoard extends Pane {
     private Translate[] vertical_t;
     // arrays for the internal representation of the board and the pieces that are
     // in place
-    private GoPiece[][] render;
+    public GoPiece[][] render;
     // the width and height of a cell in the board
     private double cell_width;
     private double cell_height;
-    private double white_score = 0.5;
-    private double black_score = 0;
 }
 
 
