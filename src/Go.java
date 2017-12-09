@@ -58,7 +58,7 @@ public class Go extends Application {
                     "    8. A player's area consists of all the points the player has either occupied or surrounded.\n" +
                             "\n" +
                     "    9. The player with more area wins.\n"));
-            Scene dialogScene = new Scene(dialogVbox, 710, 450);
+            Scene dialogScene = new Scene(dialogVbox, 740, 450);
             dialog.setScene(dialogScene);
             dialog.show();});
     }

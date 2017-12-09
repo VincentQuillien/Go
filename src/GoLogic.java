@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.BiConsumer;
 
 class Coord {
     int x;
@@ -35,9 +36,11 @@ public class GoLogic {
     };
     private int boardSize = 7;
     private GoBoard board;
+    private BiConsumer<Double[], GoPiece.Colour> updateUI;
 
-    GoLogic(GoBoard board) {
+    GoLogic(GoBoard board, BiConsumer<Double[], GoPiece.Colour> updateUI) {
         this.board = board;
+        this.updateUI = updateUI;
         resetGame();
     }
 
@@ -155,6 +158,7 @@ public class GoLogic {
 
         System.out.println("Black's score is: " + (black_score + captured_white));
         System.out.println("White's score is: " + (white_score + captured_black));
+        updateUI.accept(new Double[]{black_score, white_score}, currentPlayer);
     }
 
     public int captured_black;
