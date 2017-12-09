@@ -157,8 +157,8 @@ public class GoLogic {
         System.out.println("White's score is: " + (white_score + captured_black));
     }
 
-    private int captured_black;
-    private int captured_white;
+    public int captured_black;
+    public int captured_white;
     public double white_score;   // white gets extra .5 for going second and to avoid a tie
     public double black_score;
 }
