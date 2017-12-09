@@ -1,10 +1,13 @@
 import javafx.event.EventHandler;
-import javafx.scene.control.Control;
-import javafx.scene.control.SkinBase;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Skin;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import static javafx.scene.input.KeyCode.SPACE;
 
@@ -17,6 +20,18 @@ class GoControl extends Control {
         go_board = new GoBoard();
         logic = new GoLogic(go_board);
         getChildren().add(go_board);
+        resetGame = new Button("Reset Game");
+        rules = new Button("Rules");
+        pass = new Button("Skip");
+        blackscore = new Label("Black Score: 0");
+        whitescore = new Label("White Score: 0");
+        currentplayer = new Label("Current Player = Black");
+        blackscore.setPrefSize(200,50);
+        whitescore.setPrefSize(200,50);
+        currentplayer.setPrefSize(200,50);
+        resetGame.setPrefSize(80, Integer.MAX_VALUE);
+        rules.setPrefSize(80, Integer.MAX_VALUE);
+        pass.setPrefSize(80, Integer.MAX_VALUE);
 
         // mouse clicked event handler that will try to place a piece on the board
         setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -41,6 +56,9 @@ class GoControl extends Control {
                 }
             }
         });
+
+        resetGame.setOnAction(event -> logic.resetGame());
+        pass.setOnAction(event -> logic.swapPlayer());
     }
 
     // overridden version of the resize method
@@ -51,6 +69,9 @@ class GoControl extends Control {
     }
     GoBoard go_board;
     GoLogic logic;
+    public Button resetGame, rules, pass;
+    public Label blackscore, whitescore, currentplayer;
+
 }
 
 class GoControlSkin extends SkinBase<GoControl> implements Skin<GoControl> {

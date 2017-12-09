@@ -60,7 +60,7 @@ public class GoLogic {
                 captured.addAll(group);
         }
 
-        System.out.println("captured = " + captured);
+        // System.out.println("captured = " + captured);  Debugging
         GoPiece.Colour[][] newState = createNewState(captured);
 
         // Check eternity and suicide rules
@@ -152,12 +152,13 @@ public class GoLogic {
                 }
             }
         }
+
         System.out.println("Black's score is: " + (black_score + captured_white));
         System.out.println("White's score is: " + (white_score + captured_black));
     }
 
     private int captured_black;
     private int captured_white;
-    private double white_score;   // white gets extra .5 for going second and to avoid a tie
-    private double black_score;
+    public double white_score;   // white gets extra .5 for going second and to avoid a tie
+    public double black_score;
 }
