@@ -18,11 +18,7 @@ class GoControl extends Control {
     public GoControl() {
 
         setSkin(new GoControlSkin(this));
-        go_board = new GoBoard();
-        logic = new GoLogic(go_board);
-        getChildren().add(go_board);
         resetGame = new Button("Reset");
-        resetGame = new Button("Reset Game");
         rules = new Button("Rules");
         pass = new Button("Skip");
         blackscore = new Label("Black Score: 0");
